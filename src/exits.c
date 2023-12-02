@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:58 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 03:14:10 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 12:39:02 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,18 @@ char	**ft_free_str_arr2(char ***array)
 
 	i = 0;
 	size = 0;
-	while ((*array)[i++] != NULL)
+	while ((*array)[i] != NULL)
+	{
 		size++;
+		i++;
+	}
 	i = 0;
 	while (i < size)
-		free((*array)[i++]);
+	{
+		free((*array)[i]);
+		(*array)[i] = NULL;
+		i++;
+	}
 	free(*array);
 	return (NULL);
 }
