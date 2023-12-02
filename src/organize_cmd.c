@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 13:31:07 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:44:02 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static void	fill(char **arr, char *cmd, char *option)
 {
 	free(arr[0]);
 	free(arr[1]);
-	arr[0] = cmd;
+	arr[0] = ft_strdup(cmd);
+	free(cmd);
 	arr[1] = option;
 }
 
@@ -65,7 +66,7 @@ char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
 			status = access(path, X_OK);
 			if (status == 0)
 			{
-				fill(cmds[k++], ft_strdup(path), get_option(argv[i]));
+				fill(cmds[k++], path, get_option(argv[i]));
 				break ;
 			}
 			free(path);
