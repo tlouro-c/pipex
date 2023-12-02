@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 10:49:09 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 03:12:06 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 12:46:17 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	main_process(t_info info, pid_t **pid, char ***cmd, int ***pipedes)
 	}
 	free_cmd(&cmd, info.nr_cmd);
 	write_to_outfile(info, pipedes, pid);
+	i = 0;
+	free(*pid);
+	*pid = NULL;
+	while (i < info.nr_cmd)
+	{
+		free((*pipedes)[i]);
+		(*pipedes)[i] = NULL;
+		i++;
+	}
+	free(*pipedes);
+	*pipedes = NULL;
 }
 
 static void	write_to_outfile(t_info info, int ***pipedes, pid_t **pid)
