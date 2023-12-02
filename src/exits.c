@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:58 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 12:54:17 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:34:48 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ void	quick_free_exit(int ***pipedes, pid_t **pid, int nr_pipes)
 char	***free_cmd(char ****cmd, int nr_cmd)
 {
 	int	i;
+	int j;
 
 	i = 0;
 	while (i < nr_cmd)
 	{
-		ft_free_str_arr((*cmd)[i], 3);
+		j = 0;
+        while (j < 3)
+        {
+            free((*cmd)[i][j]);
+			j++;
+        }
+        free((*cmd)[i]);
 		i++;
 	}
 	free(*cmd);
