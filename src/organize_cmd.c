@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/01 23:06:59 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 03:15:40 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,22 +83,22 @@ char	***get_cmds(int argc, char *argv[], char *envp[])
 	paths = ft_split(env_key("PATH=", envp) + 5, ':');
 	if (paths == NULL)
 		return (NULL);
-	cmds = (char ***)malloc((argc - (3 + ft_strcmp(argv[1], "here_doc") == 0))
+	cmds = (char ***)malloc((argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0))
 			* sizeof(char **));
 	if (cmds == NULL)
-		return ((char ***)ft_free_str_arr2(paths));
+		return ((char ***)ft_free_str_arr2(&paths));
 	i = 0;
 	while (i < argc - (3 + ft_strcmp(argv[1], "here_doc") == 0))
 	{
 		cmds[i] = (char **)malloc(3 * sizeof(char *));
 		if (cmds[i] == NULL)
 		{
-			ft_free_str_arr2(paths);
-			return (free_cmd(cmds, i - 1));
+			ft_free_str_arr2(&paths);
+			return (free_cmd(&cmds, i - 1));
 		}
 		cmds[i++][2] = NULL;
 	}
 	get_cmds_loop(argc, argv, paths, cmds);
-	ft_free_str_arr2(paths);
+	ft_free_str_arr2(&paths);
 	return (cmds);
 }

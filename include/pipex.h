@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 02:26:43 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 03:11:49 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ void	main_process(t_info info, pid_t **pid, char ***cmd, int ***pipedes);
 void	child_process(char ***cmd, int **pipedes, t_info info, char *envp[]);
 
 void	free_int_ptr_exit(int **ptr);
-char	***free_cmd(char ***cmd, int nr_cmd);
+char	***free_cmd(char ****cmd, int nr_cmd);
 void	quick_free_exit(int ***pipedes, pid_t **pid, int nr_pipes);
 void	error_waiting(int **pid, char ***cmd, int ***pipedes, int nr_pipes);
 void	not_enough_args(void);
-char	**ft_free_str_arr2(char **array);
+char	**ft_free_str_arr2(char ***array);
 void	error_child(int ***pipedes, pid_t **pid, char ***cmd, int nr_pipes);
 
 void	close_all_pipes(int **pipedes, int nr_pipes);

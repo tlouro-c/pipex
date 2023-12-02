@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:58 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/01 23:05:17 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 03:14:10 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,39 +37,40 @@ void	quick_free_exit(int ***pipedes, pid_t **pid, int nr_pipes)
 	exit(2);
 }
 
-char	***free_cmd(char ***cmd, int nr_cmd)
+char	***free_cmd(char ****cmd, int nr_cmd)
 {
 	int	i;
 
 	i = 0;
 	while (i < nr_cmd)
 	{
-		ft_free_str_arr2(cmd[i]);
+		ft_free_str_arr2(&(*cmd)[i]);
 		i++;
 	}
-	free(cmd);
+	free(*cmd);
+	*cmd = NULL;
 	return (NULL);
 }
 
 void	error_waiting(int **pid, char ***cmd, int ***pipedes, int nr_pipes)
 {
-	free_cmd(cmd, nr_pipes);
+	free_cmd(&cmd, nr_pipes);
 	ft_putstr_fd("Error waiting for child process", STDERR_FILENO);
 	quick_free_exit(pipedes, pid, nr_pipes);
 }
 
-char	**ft_free_str_arr2(char **array)
+char	**ft_free_str_arr2(char ***array)
 {
 	int	i;
 	int	size;
 
 	i = 0;
 	size = 0;
-	while (array[i++] != NULL)
+	while ((*array)[i++] != NULL)
 		size++;
 	i = 0;
 	while (i < size)
-		free(array[i++]);
-	free(array);
+		free((*array)[i++]);
+	free(*array);
 	return (NULL);
 }
