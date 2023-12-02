@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 14:41:34 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 15:13:16 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ char	*get_option(char *s)
 	return (option);
 }
 
-static int	fill(int status, char **arr, char *cmd, char *option)
+static int	fill(int *status, char **arr, char *cmd, char *option)
 {
-	if (status == 0)
+	if (access(cmd, X_OK) == 0)
 	{
+		*status = 0;
 		free(arr[0]);
 		free(arr[1]);
 		arr[0] = ft_strdup(cmd);
@@ -52,6 +53,7 @@ static int	fill(int status, char **arr, char *cmd, char *option)
 		arr[1] = option;
 		return (1);
 	}
+	*status = 1;
 	return (0);
 }
 
@@ -70,9 +72,11 @@ char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
 		while (paths[++j] != NULL)
 		{
 			path = ft_strjoin_free2(paths[j], get_cmd(argv[i]));
-			status = access(path, X_OK);
-			if (fill(status, cmds[k++], path, get_option(argv[i])))
+			if (fill(&status, cmds[k], path, get_option(argv[i])))
+			{
+				k++;
 				break ;
+			}
 			free(path);
 		}
 		if (status != 0)
