@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:10:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 02:49:10 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:05:52 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	setup_here_doc(t_info *info)
 	fd = open(info -> infile_name, O_CREAT | O_TRUNC | O_WRONLY, 0777);
 	while (1)
 	{
+		ft_mini_printf("pipe heredoc>");
 		next_line = ft_get_next_line(0);
 		if (next_line == NULL || ft_strcmpnew(next_line, info -> limiter) == 0)
 		{
