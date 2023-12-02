@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 03:15:40 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 03:24:17 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	fill(char **arr, char *cmd, char *option)
 	arr[1] = option;
 }
 
-char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
+char	***get_cmds_loop(int argc, char *argv[], char ***paths, char ****cmds)
 {
 	char			*path;
 	static int		k;
@@ -57,13 +57,13 @@ char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
 	while (++i < argc - 1)
 	{
 		j = -1;
-		while (paths[++j] != NULL)
+		while ((*paths)[++j] != NULL)
 		{
-			path = ft_strjoin_free2(paths[j], get_cmd(argv[i]));
+			path = ft_strjoin_free2((*paths)[j], get_cmd(argv[i]));
 			status = access(path, X_OK);
 			if (status == 0)
 			{
-				fill(cmds[k++], ft_strdup(path), get_option(argv[i]));
+				fill((*cmds)[k++], ft_strdup(path), get_option(argv[i]));
 				break ;
 			}
 			free(path);
@@ -71,7 +71,7 @@ char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
 		if (status != 0)
 			free_and_exit_get_cmds(cmds, paths, argv[i], k);
 	}
-	return (cmds);
+	return (*cmds);
 }
 
 char	***get_cmds(int argc, char *argv[], char *envp[])
@@ -98,7 +98,7 @@ char	***get_cmds(int argc, char *argv[], char *envp[])
 		}
 		cmds[i++][2] = NULL;
 	}
-	get_cmds_loop(argc, argv, paths, cmds);
+	get_cmds_loop(argc, argv, &paths, &cmds);
 	ft_free_str_arr2(&paths);
 	return (cmds);
 }

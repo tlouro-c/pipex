@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 03:11:49 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 03:20:19 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_info	get_info(int argc, char *argv[]);
 char	*get_cmd(char *s);
 char	***get_cmds(int argc, char *argv[], char *envp[]);
 char	*ft_strjoin_free2(char const *s1, char *s2);
-void	free_and_exit_get_cmds(char ***cmds, char **paths, char *cmd, int nr);
+void	free_and_exit_get_cmds(char ****cmds, char ***paths, char *cmd, int nr);
 char	*env_key(char *key, char *envp[]);
 void	error_forking(int ***pipedes, pid_t **pid, char ***cmd, int nr_pipes);
 int		env_strcmp(char *s1, char *s2);
