@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 03:20:19 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:52:59 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ char	*env_key(char *key, char *envp[]);
 void	error_forking(int ***pipedes, pid_t **pid, char ***cmd, int nr_pipes);
 int		env_strcmp(char *s1, char *s2);
 void	setup_here_doc(t_info *info);
+int		get_cmd_len(char *s);
 
 #endif /* PIPEX_H */

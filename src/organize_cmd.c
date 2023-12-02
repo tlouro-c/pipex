@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 13:44:02 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:01:50 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*get_option(char *s)
 	int		j;
 	int		k;
 
-	i = 0;
-	while (s[i] != '-' && s[i] != '\0')
+	i = get_cmd_len(s);
+	while (ft_isspace(s[i]) && s[i] != '\0')
 		i++;
 	if (s[i] == '\0')
 		return (NULL);
@@ -33,8 +33,10 @@ char	*get_option(char *s)
 	if (option == NULL)
 		return (NULL);
 	j = 0;
-	while (!ft_isspace(s[k]))
+	while (!ft_isspace(s[k]) && s[k] != '\0')
+	{
 		option[j++] = s[k++];
+	}
 	option[j] = '\0';
 	return (option);
 }

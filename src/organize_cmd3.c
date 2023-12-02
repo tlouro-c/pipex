@@ -6,14 +6,14 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:31:04 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/01 17:32:05 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:52:43 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include "libft.h"
 
-static int	get_cmd_len(char *s)
+int	get_cmd_len(char *s)
 {
 	int		i;
 	int		size;

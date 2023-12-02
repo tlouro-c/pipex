@@ -2,6 +2,7 @@
 	"files.associations": {
 		"pipex.h": "c",
 		"libft.h": "c",
-		"locale": "c"
+		"locale": "c",
+		"array": "c"
 	}
 }
