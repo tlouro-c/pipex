@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 02:39:56 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/02 13:17:10 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(int argc, char *argv[], char *envp[])
 	if (argc < 5)
 		not_enough_args();
 	info = get_info(argc, argv);
+	cmd = get_cmds(argc, argv, envp);
 	alloc_mem(&info.pid, &pipedes, info);
 	create_pipes(info, &pipedes, &info.pid);
-	cmd = get_cmds(argc, argv, envp);
 	while (info.i < info.nr_cmd)
 	{
 		info.pid[info.i] = fork();
