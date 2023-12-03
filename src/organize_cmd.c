@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/03 16:54:57 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:01:19 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static int	fill(int *status, char **arr, char *cmd, char *option)
 		free(cmd);
 		tmp = ft_split(option, ' ');
 		while (tmp[++i] != NULL)
-			arr[i] = tmp[i];
-		free(tmp[0]);
+			arr[i] = ft_strdup(tmp[i]);
+		ft_free_str_arr2(&tmp);
 		return (1);
 	}
 	*status = 1;
