@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:58 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 14:41:19 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:46:52 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char	***free_cmd(char ****cmd, int nr_cmd)
 	while (i < nr_cmd)
 	{
 		j = 0;
-		while (j < 3)
+		while (j < 4)
 		{
 			free((*cmd)[i][j]);
 			j++;

@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:31:04 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 13:52:43 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:39:36 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	get_cmd_len(char *s)
 	int		i;
 	int		size;
 
-	size = 1;
+	if (s == NULL)
+		return (0);
+	size = 0;
 	i = 0;
 	while (s[i] != '\0' && ft_isspace(s[i]) && i < 15)
 		i++;
