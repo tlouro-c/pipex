@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:10:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/03 17:16:45 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:42:54 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,6 @@ static int	ft_strcmpnew(const char *s1, const char *s2)
 			break ;
 		i++;
 	}
-	ft_mini_printf("%c\n", s1[i]);
-	ft_mini_printf("%c\n", s2[i]);
 	return (s1[i] - s2[i]);
 }
 
