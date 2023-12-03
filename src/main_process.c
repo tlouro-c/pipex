@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 10:49:09 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 12:46:17 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/03 17:30:49 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	write_to_outfile(t_info info, int ***pipedes, pid_t **pid)
 	if (info.mode == OVERWRITE)
 		fd = open(info.outfile, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	else
-		fd = open(info.outfile, O_APPEND | O_WRONLY | O_CREAT, 0777);
+		fd = open(info.outfile, O_APPEND | O_WRONLY, 0777);
 	if (fd < 0)
 	{
 		perror("Error opening/creating outfile: ");
