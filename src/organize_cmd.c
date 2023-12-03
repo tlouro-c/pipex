@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 15:19:36 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:14:15 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,17 @@ char	*get_option(char *s)
 		return (NULL);
 	k = i;
 	j = 0;
-	while (!ft_isspace(s[i++]))
+	while (!ft_isspace(s[i]) && s[i] != '\0')
+	{
+		i++;
 		j++;
+	}
 	option = (char *)malloc(j + 1);
 	if (option == NULL)
 		return (NULL);
 	j = 0;
 	while (!ft_isspace(s[k]) && s[k] != '\0')
-	{
 		option[j++] = s[k++];
-	}
 	option[j] = '\0';
 	return (option);
 }
@@ -50,7 +51,7 @@ static int	fill(int *status, char **arr, char *cmd, char *option)
 		free(arr[1]);
 		arr[0] = ft_strdup(cmd);
 		free(cmd);
-		arr[1] = option;
+		arr[1] = get_option(option);
 		return (1);
 	}
 	*status = 1;
@@ -72,7 +73,7 @@ char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
 		while (paths[++j] != NULL)
 		{
 			path = ft_strjoin_free2(paths[j], get_cmd(argv[i]));
-			if (fill(&status, cmds[k], path, get_option(argv[i])))
+			if (fill(&status, cmds[k], path, argv[i]))
 			{
 				k++;
 				break ;
