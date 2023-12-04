@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 00:51:39 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/01 16:24:20 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:06:16 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ char			*ft_free_str_return(char *s);
 /* -------------------------------------------------------------------------- */
 
 char			*ft_get_next_line(int fd);
+
+void			*ft_calloc(size_t count, size_t size);
 
 int				ft_atoi(const char *s);
 long			ft_atol(const char *s);

@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:10:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/03 17:42:54 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:15:33 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ void	alloc_mem(pid_t **pid, int ***pipedes, t_info info)
 {
 	int	i;
 
-	*pid = (pid_t *)malloc(info.nr_cmd * sizeof(pid_t));
+	*pid = ft_calloc(info.nr_cmd, sizeof(pid_t));
 	if (*pid == NULL)
 		exit(2);
-	*pipedes = (int **)malloc((info.nr_cmd) * sizeof(int *));
+	*pipedes = ft_calloc((info.nr_cmd), sizeof(int *));
 	if (*pipedes == NULL)
 		free_int_ptr_exit(pid);
 	i = 0;
 	while (i < info.nr_cmd)
 	{
-		(*pipedes)[i] = (int *)malloc(2 * sizeof(int));
+		(*pipedes)[i] = ft_calloc(2, sizeof(int));
 		if ((*pipedes)[i] == NULL)
 		{
 			ft_putstr_fd("Error allocating memory", 2);

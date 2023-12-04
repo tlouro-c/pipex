@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/03 17:36:08 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:08:58 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ int	main(int argc, char *argv[], char *envp[])
 	char	***cmd;
 	int		**pipedes;
 
-	if (argc < 5 || (ft_strcmp(argv[1], "here_doc") == 0 && argc < 6))
-		not_enough_args(argc, argv);
+	if (argc < 5 || (ft_strcmp(argv[1], "here_doc") == 0 && argc < 6) 
+		|| envp == NULL)
+		not_enough_args(argc, argv, envp);
 	info = get_info(argc, argv);
 	cmd = get_cmds(argc, argv, envp);
 	alloc_mem(&info.pid, &pipedes, info);

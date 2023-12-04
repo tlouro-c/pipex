@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 16:12:15 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/11/26 16:12:17 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:16:41 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*mod_strdup(char const *s, char c)
 	i = 0;
 	while (s[i] != c && s[i] != '\0')
 		i++;
-	s2 = (char *)malloc((i + 1) * sizeof(char));
+	s2 = ft_calloc((i + 1), sizeof(char));
 	if (!s2)
 		return (s2);
 	i = 0;
@@ -39,7 +39,7 @@ char	**ft_split(char const *s, int sep)
 	int		j;
 	int		i;
 
-	sarray = (char **)malloc((ft_count_words(s, sep) + 1) * sizeof(char *));
+	sarray = ft_calloc((ft_count_words(s, sep) + 1), sizeof(char *));
 	if (!sarray)
 		return (NULL);
 	j = 0;

@@ -20,7 +20,7 @@ SRC_FILES =  $(SRC_DIR)/main.c \
 			 $(SRC_DIR)/organize_cmd2.c \
 			 $(SRC_DIR)/organize_cmd3.c
 
-OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
+OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 
 all: libft $(NAME)
 
