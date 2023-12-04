@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:46:50 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:54:32 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,14 +104,14 @@ char	***get_cmds(int argc, char *argv[], char *envp[])
 	paths = ft_split(env_key("PATH=", envp) + 5, ':');
 	if (paths == NULL)
 		return (NULL);
-	cmds = ft_calloc((argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0)), 
+	cmds = (char ***)ft_calloc((argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0)), 
 			sizeof(char **));
 	if (cmds == NULL)
 		return ((char ***)ft_free_str_arr2(&paths));
 	i = 0;
 	while (i < argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0))
 	{
-		cmds[i] = ft_calloc(4, sizeof(char *));
+		cmds[i] = (char **)ft_calloc(4, sizeof(char *));
 		if (cmds[i] == NULL)
 		{
 			ft_free_str_arr2(&paths);
