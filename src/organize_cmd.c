@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:14:10 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:42:44 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ char	***get_cmds(int argc, char *argv[], char *envp[])
 			ft_free_str_arr2(&paths);
 			return (free_cmd(&cmds, i));
 		}
-		cmds[i++][3] = NULL;
 	}
 	get_cmds_loop(argc, argv, paths, cmds);
 	ft_free_str_arr2(&paths);
