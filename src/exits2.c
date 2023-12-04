@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:39:10 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 03:14:26 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:35:13 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,10 @@ void	free_int_ptr_exit(int **ptr)
 	free(*ptr);
 	ptr = NULL;
 	exit(2);
+}
+
+void	env_missing()
+{
+	ft_putstr_fd("Error: Needed enviroment variables not found\n", 2);
+	exit (1);
 }

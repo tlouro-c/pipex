@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:32:26 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:35:31 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char *argv[], char *envp[])
 	if (argc < 5 || (ft_strcmp(argv[1], "here_doc") == 0 && argc < 6))
 		not_enough_args(argc, argv);
 	if (env_key("PATH=", envp) == NULL)
-		ft_putstr_fd("Error: Needed enviroment variables not found", 2);
+		env_missing();
 	info = get_info(argc, argv);
 	cmd = get_cmds(argc, argv, envp);
 	alloc_mem(&info.pid, &pipedes, info);
