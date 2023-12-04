@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:58 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:29:44 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:51:18 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ char	***free_cmd(char ****cmd, int nr_cmd)
 		j = 0;
 		while (j < 4)
 		{
-			free((*cmd)[i][j]);
+			if ((*cmd)[i][j] != NULL)
+				free((*cmd)[i][j]);
 			j++;
 		}
 		free((*cmd)[i]);
