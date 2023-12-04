@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 02:00:48 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:08:26 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:29:19 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	free_int_ptr_exit(int **ptr);
 char	***free_cmd(char ****cmd, int nr_cmd);
 void	quick_free_exit(int ***pipedes, pid_t **pid, int nr_pipes);
 void	error_waiting(int **pid, char ***cmd, int ***pipedes, int nr_pipes);
-void	not_enough_args(int argc, char *argv[], char *envp[]);
+void	not_enough_args(int argc, char *argv[]);
 char	**ft_free_str_arr2(char ***array);
 void	error_child(int ***pipedes, pid_t **pid, char ***cmd, int nr_pipes);
 

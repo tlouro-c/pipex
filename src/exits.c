@@ -6,22 +6,20 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:43:58 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:12:07 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:29:44 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include "libft.h"
 
-void	not_enough_args(int argc, char *argv[], char *envp[])
+void	not_enough_args(int argc, char *argv[])
 {
 	if (argc < 2)
 		ft_putstr_fd("Error: Please provide at least 4 arguments\n", 2);
 	else if (ft_strcmp("here_doc", argv[1]) != 0)
 		ft_putstr_fd("Error: You must provide at least 4 arguments:\
  ./pipex file1 cmd1 cmd2 file2\n", 2);
-	else if (envp == NULL)
-		ft_putstr_fd("Error: Error finding needed enviroment variables\n", 2);
 	else
 		ft_putstr_fd("Error: You must provide at least 5 arguments when you're\
  using here_doc: ./pipex here_doc LIMITER cmd cmd1 file\n", 2);

@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 15:10:23 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:15:33 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:24:39 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ t_info	get_info(int argc, char *argv[])
 		if (info.infile < 0)
 		{
 			perror(argv[1]);
-			close(info.infile);
 			exit(EXIT_FAILURE);
 		}
 		info.mode = OVERWRITE;

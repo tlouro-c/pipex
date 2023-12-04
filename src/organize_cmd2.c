@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 17:03:38 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/02 13:39:33 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:31:02 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char	*env_key(char *key, char *envp[])
 {
 	int	i;
 
+	if (envp == NULL)
+		return (NULL);
 	i = 0;
 	while (envp[i] != NULL)
 	{
