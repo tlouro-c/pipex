@@ -6,7 +6,7 @@
 /*   By: tlouro-c <tlouro-c@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 16:07:01 by tlouro-c          #+#    #+#             */
-/*   Updated: 2023/12/04 19:58:08 by tlouro-c         ###   ########.fr       */
+/*   Updated: 2023/12/07 13:12:52 by tlouro-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,15 @@ static int	fill(int *status, char **arr, char *cmd, char *option)
 	if (access(cmd, X_OK) == 0)
 	{
 		*status = 0;
-		free(arr[0]);
-		free(arr[1]);
-		free(arr[2]);
 		arr[0] = ft_strdup(cmd);
 		free(cmd);
 		tmp = ft_split(option, ' ');
-		while (tmp[++i] != NULL)
+		i = 1;
+		while (tmp[i] != NULL)
+		{
 			arr[i] = ft_strdup(tmp[i]);
+			i++;
+		}
 		ft_free_str_arr2(&tmp);
 		return (1);
 	}
@@ -89,8 +90,8 @@ char	***get_cmds_loop(int argc, char *argv[], char **paths, char ***cmds)
 			free(path);
 		}
 		if (status != 0)
-			free_and_exit_get_cmds(&cmds, &paths, argv[i], i - k
-				- (ft_strcmp(argv[1], "here_doc") == 0));
+			free_and_exit_get_cmds(&cmds, &paths, argv[i], argc - 3 - 
+				(ft_strcmp(argv[1], "here_doc") == 0));
 	}
 	return (cmds);
 }
@@ -104,8 +105,8 @@ char	***get_cmds(int argc, char *argv[], char *envp[])
 	paths = ft_split(env_key("PATH=", envp) + 5, ':');
 	if (paths == NULL)
 		return (NULL);
-	cmds = (char ***)ft_calloc((argc - 3 - (ft_strcmp(argv[1], "here_doc") == 0)), 
-			sizeof(char **));
+	cmds = (char ***)ft_calloc((argc - 3 - 
+				(ft_strcmp(argv[1], "here_doc") == 0)), sizeof(char **));
 	if (cmds == NULL)
 		return ((char ***)ft_free_str_arr2(&paths));
 	i = 0;
