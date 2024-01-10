@@ -3,9 +3,9 @@
 ## Table of Contents
 - [Description](#description)
 - [Usage](#usage)
+- [Bonus Features](#bonus-features)
 - [Installation](#installation)
 - [Example](#example)
-- [Bonus Features](#bonus-features)
 - [Author](#author)
 
 ## Description
